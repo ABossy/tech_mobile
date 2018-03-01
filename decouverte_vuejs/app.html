@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>App Astrid</title>
+    <title>Astrid</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../decouverte_vuejs/style.css" />
     <script src="main.js"></script>
@@ -20,8 +20,9 @@
 
         <label for="firstname">Firstname:</label>
         <input id="firstname" type="text" v-model.lazy="firstname" />
-        <button >valider</button>
-        <h1 :class="{ red: active }">{{ firstname }}</h1>
+        <button v-on:click="update=firstname">valider</button>
+        <!-- v-on:click afin de valider uniquement via le bouton valider -->
+        <h1 :class="{ red: active }">{{ update }}</h1>
         <!-- v-model.lazy pour synchroniser apres l'evenement  --> 
 
         <input type="checkbox" id="rouge" @click="active = !active" :aria-pressed="active ? 'true' : 'false'">
