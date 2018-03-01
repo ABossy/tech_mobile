@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>App Astrid</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../decouverte_vuejs/style.css" />
+    <script src="main.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <label for="name">Name:</label>
+        <input id="name" type="text" v-model="name" />
+        <h1 :class="{ red: active }">{{ name }}</h1>
+        <!-- v-model crée une liaison de données bidirectionnelle sur les champs de formulaire -->
+
+        <label for="firstname">Firstname:</label>
+        <input id="firstname" type="text" v-model.lazy="firstname" />
+        <button >valider</button>
+        <h1 :class="{ red: active }">{{ firstname }}</h1>
+        <!-- v-model.lazy pour synchroniser apres l'evenement  --> 
+
+        <input type="checkbox" id="rouge" @click="active = !active" :aria-pressed="active ? 'true' : 'false'">
+        <label for="rouge">Rouge</label><br>
+     
+        <!-- pour passer le champ de la variable firstname en rouge -->
+        
+        <img src="https://www.focusonanimation.com/wp-content/uploads/2016/05/wallace-et-gromit-les-inventuriers-miniature.jpg" v-if="show"><br>
+        <button @click="show = !show" :aria-expanded="show ? 'true' : 'false'">
+            Afficher image
+        </button><br>
+        <!-- permet d'afficher et masquer une image -->
+        <a v-bind:href="link"> {{ message }}</a> 
+        <!-- Ici href est un argument, qui dit à la directive v-bind de lier l’attribut 
+            href de l’élément à la valeur de l’expression url.-->
+
+    </div>
+ 
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="/test_app/decouverte_vuejs/app.js"></script>
+</body>
+
+</html>
