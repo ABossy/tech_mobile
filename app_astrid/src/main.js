@@ -9,3 +9,4 @@ new Vue({
   render: h => h(App),
   active: false
 })
+

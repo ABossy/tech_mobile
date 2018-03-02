@@ -10,7 +10,7 @@
         <!-- pour afficher une liste d'éléments basée sur un tableau. -->
         <h1>{{machine.nom}} {{machine.etat}}</h1> 
          <!-- <toggle-button v-on:click="onChangeEventHandler" @change="onChangeEventHandler"/><br> -->
-         <toggle-button :value="machine.etat" 
+         <toggle-button :value="machine.etat" v-on:change="machine.etat = $event.value"
                color="pink" 
                :sync="true" 
                :labels="true"/>
