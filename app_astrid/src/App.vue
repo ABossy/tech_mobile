@@ -2,21 +2,7 @@
   <div id="app">
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
-    <div class="main">   
-    <!-- <h2>Machine Paris</h2>
-    <toggle-button @change="onChangeEventHandler"/>  -->
-    <ul>
-      <li v-for =" machine in machines" v-bind:class="{ color: machine.etat}">
-        <!-- pour afficher une liste d'éléments basée sur un tableau. -->
-        <h1>{{machine.nom}} {{machine.etat}}</h1> 
-         <!-- <toggle-button v-on:click="onChangeEventHandler" @change="onChangeEventHandler"/><br> -->
-         <toggle-button :value="machine.etat" v-on:change="machine.etat = $event.value"
-               color="pink" 
-               :sync="true" 
-               :labels="true"/>
-      </li>
-    </ul>
-    </div>  
+<my-machine v-for="machine in machinesUE" :astrid="machine" :key="machine.name"></my-machine>
   </div>
 </template>
 
@@ -26,12 +12,10 @@ export default {
   data() {
     return {
       msg: "Astrid",
-      machines: [
+      machinesUE: [
         {
           nom: "Grenoble",
-          etat: true,
-          
-         
+          etat: true
           
         },
         {
