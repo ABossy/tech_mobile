@@ -11,9 +11,7 @@
       <ul>
      <!-- V-if peut contenir une règle avec un opérateur logique ou de comparaison -->
      <!-- https://www.w3schools.com/js/js_comparisons.asp -->
-      <my-machine v-for="machine in machines"
-                :key="machine.id"
-               v-bind:astrid="machine"
+      <my-machine v-for="machine in machines" :key="machine.id" v-bind:astrid="machine"
                v-if="!hideOffMachines || machine.etat">
       </my-machine>
     </ul>  
@@ -37,8 +35,9 @@ export default {
     return {
       msg: "Astrid",
       hideOffMachines:false,                  
+      
       buffer: {
-        id: 1,
+        id:3,
         name: '', 
         etat: true
       },
@@ -107,7 +106,7 @@ a {
 }
 
 .color {
-  color: palevioletred;
+  color: rgb(32, 190, 18);
 }
 
 .form {
