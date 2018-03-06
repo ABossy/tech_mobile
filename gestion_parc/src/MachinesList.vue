@@ -6,17 +6,12 @@
 </template>
 
 
-
 <script>
 export default {
-name: "list-machine",
+  name: "list-machine",
 
-  data () {
-    return {
-     
-    }
+  data() {
+    return {};
   }
-
-}
-
+};
 </script>

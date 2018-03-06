@@ -7,13 +7,10 @@
 
 <script>
 export default {
-name:"machine-map",
+  name: "machine-map",
 
-  data () {
-    return {
-      
-    }
+  data() {
+    return {};
   }
-}
-
+};
 </script>
