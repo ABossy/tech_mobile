@@ -1,8 +1,8 @@
 <template>
 <div>
     <h1>Liste des Machines</h1>
-    
-   <machines></machines>
+   <machines v-for="machineActuelle in datamachine" :key="machineActuelle.id" 
+   v-bind:machine="machineActuelle"></machines>
 </div>
 </template>
 
@@ -10,23 +10,12 @@
 <script>
 export default {
   name: "list-machine",
+  props: ["datamachine"],
+//   qui sera connue dans l'app.vue
+// <router-view v-bind:datamachine="machines"></router-view>
 
   data() {
-    return {
-      
-    machines: [{
-        id: 1,
-        name: 'What else ?',
-        status: true,
-        checkedAt: new Date(),
-    }, {
-        id: 2,
-        name: 'Broken',
-        status: false,
-        checkedAt: new Date(),
-    }] 
-}
-    },
+    return {};
   }
-
+};
 </script>

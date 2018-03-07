@@ -39,3 +39,8 @@ Question : quelle est la différence entre npm install vue-router et npm install
 	maintenant il le fait automatiquement.						
 
 Router https://jsfiddle.net/yyx990803/xgrjzsup/
+
+Question : Remarquez que nous avons ajouté une clef id à nos objets, pourquoi ?
+
+	Votre réponse :
+	le v-for necessite une :Key donc on lui passe l'id.
