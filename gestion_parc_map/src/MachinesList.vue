@@ -1,6 +1,7 @@
 <template>
 <div>
     <h1>Liste des Machines</h1>
+    
    <machines></machines>
 </div>
 </template>
