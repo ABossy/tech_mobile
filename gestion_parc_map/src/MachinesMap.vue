@@ -30,15 +30,14 @@ export default {
         {
           id: 1,
           latitude: 10,
-          longitude: 10,
+          longitude: 10
         },
         {
           id: 2,
           latitude: 11,
-          longitude: 9.6,
+          longitude: 9.6
         }
-]
-   
+      ]
     };
   }
 };

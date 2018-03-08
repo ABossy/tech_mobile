@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="mac">
 <br>
     <h1>Machines {{machine.name}}</h1>
     <h2 v-if="machine.status === true" class="green"> Statut OK </h2>
@@ -16,7 +16,7 @@ export default {
   name: "machines",
   props: ["machine"]
   //  props qui sera connue dans machinelist.vue
-//   v-bind:machine="machineActuelle"
+  //   v-bind:machine="machineActuelle"
 };
 </script>
 
@@ -28,7 +28,8 @@ export default {
   color: firebrick;
 }
 
-h2 {
+div .mac {
   border-style: solid;
+  margin-bottom: 1%;
 }
 </style>

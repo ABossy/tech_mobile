@@ -9,22 +9,23 @@ import * as VueGoogleMaps from 'vue2-google-maps'
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyB4lbliAzQzg7u5I7XF2g6RAIdk4iZPdcg',
-    
+
   }
 })
-Vue.component('list-machine',MachinesList)
-Vue.component('machine-map',MachineMap)
-Vue.component('machines',Machine)
+Vue.component('list-machine', MachinesList)
+Vue.component('machine-map', MachineMap)
+Vue.component('machines', Machine)
 Vue.use(VueRouter)
 
-const router = new VueRouter ({
-  routes:Routes
-  
+const router = new VueRouter({
+  routes: Routes
+
 })
 new Vue({
   el: '#app',
   render: h => h(App),
-  router:router
-  
+  router: router
+
 })
+
 

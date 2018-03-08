@@ -16,24 +16,24 @@ export default {
 
   data() {
     return {
-      machines: [{
-        id: 1,
-        name: 'What else ?',
-        status: true,
-        checkedAt: new Date(),
-    }, 
-    {
-        id: 2,
-        name: 'Broken',
-        status: false,
-        checkedAt: new Date(),
-    }],
+      machines: [
+        {
+          id: 1,
+          name: "What else ?",
+          status: true,
+          checkedAt: new Date()
+        },
+        {
+          id: 2,
+          name: "Broken",
+          status: false,
+          checkedAt: new Date()
+        }
+      ],
 
       message: "Que voulez vous faire ?"
     };
-  },
-
- 
+  }
 };
 </script>
 
