@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
+import ToggleButton from 'vue-js-toggle-button'
+Vue.use(ToggleButton)
 import VueRouter from 'vue-router'
 import MachinesList from './MachinesList.vue'
 import MachineMap from './MachinesMap.vue'

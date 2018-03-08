@@ -1,10 +1,10 @@
 <template>
 <div class="mac">
 <br>
-    <h1>Machines {{machine.name}}</h1>
-    <h2 v-if="machine.status === true" class="green"> Statut OK </h2>
-    <h2 v-if="machine.status === false" class="red"> Statut KO </h2><br>
-    <h3> {{machine.checkedAt.toLocaleString()}}</h3><br>
+    <h1>{{machine.name}}</h1>
+    <h2 v-if="machine.status === 'true'" class="green">Status: OK ! </h2>
+    <h2 v-if="machine.status === 'false'" class="red">Status: KO ! </h2><br>
+    <h3> {{machine.checkedAt}}</h3><br>
     <!-- conditions d'affichage "etat machine" -->
 
 </div>
@@ -13,8 +13,8 @@
 
 <script>
 export default {
-  name: "machines",
-  props: ["machine"]
+  name: "machines", //url
+  props: ["machine"],
   //  props qui sera connue dans machinelist.vue
   //   v-bind:machine="machineActuelle"
 };
@@ -27,9 +27,17 @@ export default {
 .red {
   color: firebrick;
 }
-
+.orange{
+  color:darkorange;
+}
+h2 {
+  font-size: 35px;
+}
 div .mac {
   border-style: solid;
+  width: 40%;
+  margin: auto;
   margin-bottom: 1%;
 }
 </style>
+

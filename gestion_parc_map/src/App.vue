@@ -7,6 +7,7 @@
     <router-link class="btn btn-success" to="/listemachine">Liste des Machines</router-link>  
   <router-view v-bind:datamachine="machines"></router-view>
   <!-- boutons des routers -->
+ 
    </div>
 </template>
 
@@ -16,20 +17,8 @@ export default {
 
   data() {
     return {
-      machines: [
-        {
-          id: 1,
-          name: "What else ?",
-          status: true,
-          checkedAt: new Date()
-        },
-        {
-          id: 2,
-          name: "Broken",
-          status: false,
-          checkedAt: new Date()
-        }
-      ],
+      hideOffMachines: false,
+      machines: [],
 
       message: "Que voulez vous faire ?"
     };
@@ -76,23 +65,3 @@ button {
 }
 </style>
 
-
-
-
-
-
-
-
-// exercice pop up 
-<!-- onMachine et onMap = nom de la methode définie ci dessous -->
-<!-- <button button v-on:click="onMachineListClick">Afficher la liste des machines</button><br>
-<button button v-on:click="onMapClick">Afficher la map</button> -->
-
-//  methods: {
-//     onMachineListClick: function(event) {
-//       alert("vous allez accéder à la page Liste des machines");
-//     },
-//     onMapClick: function(event) {
-//       alert("vous allez accéder à la page Map des machines");
-//     }
-//   }

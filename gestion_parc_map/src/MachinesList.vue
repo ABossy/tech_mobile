@@ -1,8 +1,8 @@
 <template>
 <div>
     <h1>Liste des Machines</h1>
-   <machines v-for="machineActuelle in datamachine" :key="machineActuelle.id" 
-   v-bind:machine="machineActuelle"></machines>
+   <machines v-for="machineApi in machines" :key="machineApi.id"
+   v-bind:machine="machineApi"></machines>
 </div>
 </template>
 
