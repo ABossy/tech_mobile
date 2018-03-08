@@ -19,7 +19,7 @@
 <script>
 import axios from "axios";
 export default {
-  name: "machine-map",// url
+  name: "machine-map", // url
 
   data() {
     return {
@@ -35,16 +35,17 @@ export default {
           longitude: 9.6
         }
       ],
-      userposition:{
-        coords:{
-          latitude:"0",
+      userposition: {
+        coords: {
+          latitude: "0",
           longitude: "0"
         }
       }
-    }
+    };
   },
-created () {
-  axios.get("https://machine-api-campus.herokuapp.com/api/machines")
+  created() {
+    axios
+      .get("https://machine-api-campus.herokuapp.com/api/machines")
       .then(response => {
         console.log(response.data);
         this.machines = response.data;
@@ -52,19 +53,18 @@ created () {
       .catch(function(error) {
         console.log(error);
       }),
-      this.geoloc()
+      this.geoloc();
   },
-   // axios interroge l'api pour récuperer les infos
-   // la reponse retournée sera stockée dans le tableau machine.
- methods: {
-   geoloc() {
-     navigator.geolocation.getCurrentPosition((position) => {
-       this.userposition =position
-       console.log(position)
-       });
-   }
- }
- 
+  // axios interroge l'api pour récuperer les infos
+  // la reponse retournée sera stockée dans le tableau machine.
+  methods: {
+    geoloc() {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.userposition = position;
+        console.log(position);
+      });
+    }
+  }
 };
 </script>
 

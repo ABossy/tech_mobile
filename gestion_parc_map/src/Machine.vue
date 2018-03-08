@@ -14,7 +14,7 @@
 <script>
 export default {
   name: "machines", //url
-  props: ["machine"],
+  props: ["machine"]
   //  props qui sera connue dans machinelist.vue
   //   v-bind:machine="machineActuelle"
 };
@@ -27,8 +27,8 @@ export default {
 .red {
   color: firebrick;
 }
-.orange{
-  color:darkorange;
+.orange {
+  color: darkorange;
 }
 h2 {
   font-size: 35px;
