@@ -2,10 +2,10 @@
   <div id="app">
     <img src="http://vuejs.org/images/logo.png">
     <h1><strong>{{message}}</strong></h1>
-<br>
+<br> 
   <router-link class="btn btn-success" to="/map">Consulter la Map</router-link>
     <router-link class="btn btn-success" to="/listemachine">Liste des Machines</router-link>  
-  <router-view v-bind:datamachine="machines"></router-view>
+  <router-view v-bind:datamachine="machines" ></router-view>
   <!-- boutons des routers -->
  
    </div>
@@ -18,7 +18,6 @@ export default {
 
   data() {
     return {
-      hideOffMachines: false,
       machines: [],
 
       message: "Que voulez vous faire ?"

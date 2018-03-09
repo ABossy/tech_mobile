@@ -1,12 +1,15 @@
 <template>
 <div>
     <h1>Liste des Machines</h1>
+    <!-- <h4>
+        Cacher les machines éteintes
+        <toggle-button :value="hideOffMachines" @change="hideOffMachines = !hideOffMachines"/>
+      </h4> -->
     <span>
      <button type="button" class="btn btn-primary" data-toggle="modal" 
 data-target="#ajoutModal">
        Ajouter une Machine
      </button>
-
      <!-- Modal -->
      <div class="modal fade" id="ajoutModal" tabindex="-1" role="dialog" 
 aria-labelledby="ajoutModalCenterTitle"
@@ -52,6 +55,7 @@ for="statusMachineAjout">Activée</label>
                <button type="button" class="btn btn-secondary" 
 data-dismiss="modal">Annuler</button>
                <button type="submit" @click="addMachine()" class="btn 
+               <!-- ma fonction addMachine est appelée au click -->
 btn-primary" >Enregistrer</button>
              </div>
            </form>
@@ -59,9 +63,10 @@ btn-primary" >Enregistrer</button>
        </div>
      </div>
    </span>
-
+ 
   <machines v-for="machineApi in machines" :key="machineApi.id"
-   v-bind:machine="machineApi"></machines>
+   v-bind:machine="machineApi" ></machines>
+
 
 </div>
 </template>
@@ -78,6 +83,7 @@ export default {
 
   data() {
     return {
+      hideOffMachines: false,
       machines: [], // au début la liste des machines est vide
       loading: false,
       error: null,
@@ -105,9 +111,9 @@ export default {
       });
   },
   // axios get qui permet d'afficher les objets machines de l'api
+  // axios permet de faire des requtes sur une Api.
 
   methods: {
-    // Création d'un nouvel objet dans la collection machines
     addMachine: function() {
       axios
         .post("https://machine-api-campus.herokuapp.com/api/machines", {
@@ -121,7 +127,7 @@ export default {
           $("#ajoutModal").modal("hide");
           alert("machine creation");
         });
-    }
+    } // Création d'un nouvel objet dans la collection machines
   }
 };
 </script>
