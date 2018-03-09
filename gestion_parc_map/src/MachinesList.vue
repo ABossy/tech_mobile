@@ -27,30 +27,31 @@ aria-label="Close">
                  <label for="nomMachineAjout">Nom de la machine</label>
                  <input type="text" class="form-control" 
 id="nomMachineAjout" required placeholder="Entrez un nom" 
-v-model="machines.name" >
+v-model="buffer.name" >
                </div>
                <div class="form-group">
                  <label for="latitudeMachineAjout">Latitude</label>
                  <input type="text" class="form-control" 
 id="latitudeMachineAjout" placeholder="45.1856964"  
-v-model="machines.latitude" >
+v-model="buffer.latitude" >
                  <label for="longitudeMachineAjout">Longitude</label>
                  <input type="text" class="form-control" 
 id="longitudeMachineAjout" placeholder="5.7287321"  
-v-model="machines.longitude">
+v-model="buffer.longitude">
                </div>
                <div class="form-check">
                  <input type="checkbox" class="form-check-input" 
 id="statusMachineAjout" true-value="true" false-value="false" 
-v-model="machines.status">
+v-model="buffer.status">
                  <label class="form-check-label" 
 for="statusMachineAjout">Activée</label>
                </div>
              </div>
+
              <div class="modal-footer">
                <button type="button" class="btn btn-secondary" 
 data-dismiss="modal">Annuler</button>
-               <button type="submit" class="btn 
+               <button type="submit" @click="addMachine()" class="btn 
 btn-primary" >Enregistrer</button>
              </div>
            </form>
@@ -63,12 +64,11 @@ btn-primary" >Enregistrer</button>
    v-bind:machine="machineApi"></machines>
 
 </div>
-
-
 </template>
 
 
 <script>
+var event = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
 import axios from "axios";
 export default {
   name: "list-machine",
@@ -80,7 +80,16 @@ export default {
     return {
       machines: [], // au début la liste des machines est vide
       loading: false,
-      error: null
+      error: null,
+
+      buffer: {
+        name: "test",
+        latitude: "10",
+        longitude: "10",
+        status: false,
+        checkedAt: event
+      }
+      // buffer données pour la création machine
     };
   },
 
@@ -94,8 +103,26 @@ export default {
       .catch(function(error) {
         console.log(error);
       });
+  },
+  // axios get qui permet d'afficher les objets machines de l'api
+
+  methods: {
+    // Création d'un nouvel objet dans la collection machines
+    addMachine: function() {
+      axios
+        .post("https://machine-api-campus.herokuapp.com/api/machines", {
+          name: this.buffer.name,
+          status: this.buffer.status,
+          latitude: this.buffer.latitude,
+          longitude: this.buffer.longitude,
+          checkedAt: this.buffer.checkedAt
+        })
+        .then(function(reponse) {
+          $("#ajoutModal").modal("hide");
+          alert("machine creation");
+        });
+    }
   }
-  // axios get qui permet d'afficher les objets de l'api
 };
 </script>
 
